@@ -5,8 +5,6 @@ variable "AMIS" {
   type = "map"
   default = {
     us-east-1 = "ami-6871a115"
-    us-west-2 = "ami-32cf7b4a"
-    eu-west-1 = "ami-844e0bf7"
   }
 }
 
