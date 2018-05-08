@@ -1,5 +1,8 @@
 ---
 
+- name: Install unzip 
+  yum: name=unzip state=present 
+
 - name: Install Wget 
   yum: name=wget state=present 
 
@@ -53,3 +56,20 @@
   ignore_errors: True
 
 - debug: msg={{ jenkins_one_time_password.stdout_lines }}
+
+- name: install terraform link
+  get_url: 
+    url: https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
+    dest: /tmp/terraform_0.11.7_linux_amd64.zip
+
+- name: unzip 
+  unarchive:
+    src: /tmp/terraform_0.11.7_linux_amd64.zip
+    dest: /bin
+    creates: /bin/terraform
+    copy: no
+
+
+
+
+

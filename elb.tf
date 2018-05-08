@@ -17,12 +17,12 @@ resource "aws_elb" "wp_elb" {
   listener {
     instance_port     = 8080
     instance_protocol = "tcp"
-    lb_port           = 8080
-    lb_protocol       = "tcp"
+    lb_port           = 80
+    lb_protocol       = "http"
   }
  listener {
-    instance_port     = 80
-    instance_protocol = "http"
+    instance_port     = 8080
+    instance_protocol = "tcp"
     lb_port           = 443
     lb_protocol       = "https"
     ssl_certificate_id = "${aws_iam_server_certificate.test_cert.arn}"
